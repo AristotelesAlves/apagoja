@@ -1,0 +1,136 @@
+/* Reset */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Corpo da página */
+body {
+    background: url("https://i.ibb.co/2gCcpnQ/fundo-filmes.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Logo e texto integrado */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Aumentei o espaço entre a logo e o título */
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.logo-text {
+    text-align: center;
+    margin-top: -5px; /* Reduzi o espaço entre o título e a frase */
+}
+
+.title {
+    font-family: "Saira Stencil One", sans-serif;
+    font-size: 36px; /* Tamanho ajustado para harmonizar com a logo */
+    font-weight: 400;
+    color: #FFF;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 14px; /* Tamanho menor para parecer um subtítulo da logo */
+    color: #f1f1f1;
+    letter-spacing: 0.5px;
+    margin-top: -5px; /* Reduzi ainda mais o espaço entre o título e a frase */
+}
+
+/* Contêiner principal */
+.main-container {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Seção de pesquisa */
+.search-section h2 {
+    font-size: 24px;
+    margin-bottom: 0.3rem;
+    color: #FFF;
+}
+
+.search-section .description {
+    font-size: 14px;
+    color: #CCC;
+    margin-bottom: 1rem;
+}
+
+/* Formulário de pesquisa */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-field {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    outline: none;
+    color: #333;
+    transition: border 0.3s;
+}
+
+.input-field::placeholder {
+    color: #666;
+}
+
+.input-field:focus {
+    border: 2px solid #ff4646;
+    background: #FFF;
+    color: #333;
+}
+
+/* Botão de pesquisa */
+.submit-button {
+    padding: 12px 18px;
+    background-color: #ff4646;
+    border: none;
+    border-radius: 50%;
+    color: #FFF;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #e63e3e;
+}
+
+.submit-button i {
+    font-size: 16px;
+}

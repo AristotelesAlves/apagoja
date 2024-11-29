@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Recomendação de Filmes. Descubra novos filmes a partir das suas preferências.">
+    <title>CINE MATCH - Encontre Seu Filme</title>
+
+    <!-- Links de estilos -->
+    <link rel="shortcut icon" href="{% static 'recommender/logo.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'recommender/css/page.css' %}">
+
+    <!-- Scripts externos -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body>
+    <!-- Cabeçalho com logo e título -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://i.ibb.co/3sfc3BN/logo-filme.png" alt="Cine Match Logo" class="logo-img">
+            <div class="logo-text">
+                <h1 class="title">CINE MATCH</h1>
+                <p class="tagline">A arte de encontrar o filme perfeito!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-container">
+        <!-- Seção de pesquisa -->
+        <div class="search-section">
+            <h2>Qual seu filme favorito?</h2>
+            <p class="description">Diga pra nós e deixe que a mágica das recomendações comece!</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-container">
+                    <input class="input-field" type="text" id="movie_name" name="movie_name"
+                        placeholder="Digite o filme que deseja..." required>
+                    <button type="submit" class="submit-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script de autocomplete -->
+    <script>
+        $(function () {
+            var availableTags = [
+                {% for movie_name in all_movie_names %}
+                    "{{ movie_name }}",
+                {% endfor %}
+            ];
+            $("#movie_name").autocomplete({
+                source: availableTags,
+                minLength: 3
+            });
+        });
+    </script>
+</body>
+</html>
